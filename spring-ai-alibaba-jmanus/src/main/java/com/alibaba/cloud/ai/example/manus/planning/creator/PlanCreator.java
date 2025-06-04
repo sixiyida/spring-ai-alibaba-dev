@@ -1,4 +1,3 @@
-
 /*
  * Copyright 2025 the original author or authors.
  *
@@ -22,17 +21,22 @@ import com.alibaba.cloud.ai.example.manus.planning.model.vo.ExecutionContext;
 import com.alibaba.cloud.ai.example.manus.planning.model.vo.ExecutionPlan;
 import com.alibaba.cloud.ai.example.manus.recorder.PlanExecutionRecorder;
 import com.alibaba.cloud.ai.example.manus.tool.PlanningTool;
+import jakarta.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.ai.chat.prompt.PromptTemplate;
+import reactor.core.publisher.Flux;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 /**
  * 负责创建执行计划的类
  */
+@Component
+@Resource
 public class PlanCreator {
 
 	private static final Logger log = LoggerFactory.getLogger(PlanCreator.class);
@@ -59,7 +63,6 @@ public class PlanCreator {
 	 * @return 计划创建结果
 	 */
 	public void createPlan(ExecutionContext context) {
-
 		String planId = context.getPlanId();
 		if (planId == null || planId.isEmpty()) {
 			throw new IllegalArgumentException("Plan ID cannot be null or empty");
@@ -81,6 +84,12 @@ public class PlanCreator {
 				.advisors(memoryAdvisor -> memoryAdvisor.param("chat_memory_conversation_id", planId)
 					.param("chat_memory_retrieve_size", 100))
 				.call();
+
+			//test
+			Flux<String> flux = llmService.getPlanningChatClient()
+			.prompt(prompt)
+			.toolCallbacks(List.of(planningTool.getFunctionToolCallback())).stream().content();
+			
 			String outputText = response.chatResponse().getResult().getOutput().getText();
 			// 检查计划是否创建成功
 			if (planId.equals(planningTool.getCurrentPlanId())) {
@@ -151,6 +160,54 @@ public class PlanCreator {
 				重要提示：计划中的每个步骤都必须以[AGENT]开头，代理名称必须是上述列出的可用代理之一。
 				例如："[BROWSER_AGENT] 搜索相关信息" 或 "[DEFAULT_AGENT] 处理搜索结果"
 				""".formatted(agentsInfo, request, planId);
+	}
+
+	public void testFluxOutput(ExecutionContext context) {
+		String planId = context.getPlanId();
+		if (planId == null || planId.isEmpty()) {
+			throw new IllegalArgumentException("Plan ID cannot be null or empty");
+		}
+		try {
+			// 构建代理信息
+			String agentsInfo = buildAgentsInfo(agents);
+			// 生成计划提示
+			String planPrompt = generatePlanPrompt(context.getUserRequest(), agentsInfo, planId);
+
+			// 使用 LLM 生成计划
+			PromptTemplate promptTemplate = new PromptTemplate(planPrompt);
+			Prompt prompt = promptTemplate.create();
+
+			// 测试空列表的情况
+			log.info("测试空列表的 Flux 输出：");
+			Flux<String> emptyListFlux = llmService.getPlanningChatClient()
+				.prompt(prompt)
+				.toolCallbacks(List.of())
+				.stream()
+				.content();
+			
+			emptyListFlux.subscribe(
+				chunk -> log.info("空列表 Flux: {}", chunk),
+				error -> log.error("空列表 Flux 错误: {}", error.getMessage()),
+				() -> log.info("空列表 Flux 完成")
+			);
+
+			// 测试有工具回调的情况
+			log.info("\n测试有工具回调的 Flux 输出：");
+			Flux<String> toolCallbackFlux = llmService.getPlanningChatClient()
+				.prompt(prompt)
+				.toolCallbacks(List.of(planningTool.getFunctionToolCallback()))
+				.stream()
+				.content();
+			
+			toolCallbackFlux.subscribe(
+				chunk -> log.info("工具回调 Flux: {}", chunk),
+				error -> log.error("工具回调 Flux 错误: {}", error.getMessage()),
+				() -> log.info("工具回调 Flux 完成")
+			);
+
+		} catch (Exception e) {
+			log.error("测试 Flux 输出时发生错误: {}", e.getMessage(), e);
+		}
 	}
 
 }

@@ -1,0 +1,63 @@
+2025-06-04 16:50:27:556 [main] INFO  c.a.c.a.e.manus.OpenManusSpringBootApplication(StartupInfoLogger.java 53) -Starting OpenManusSpringBootApplication using Java 21.0.2 with PID 33684 (D:\Java\JavaProjects\spring-ai-alibaba-dev\spring-ai-alibaba-jmanus\target\classes started by 23977 in D:\Java\JavaProjects\spring-ai-alibaba-dev)
+2025-06-04 16:50:27:558 [main] INFO  c.a.c.a.e.manus.OpenManusSpringBootApplication(SpringApplication.java 652) -No active profile set, falling back to 1 default profile: "default"
+2025-06-04 16:50:28:511 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 143) -Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-04 16:50:28:670 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 211) -Finished Spring Data repository scanning in 149 ms. Found 5 JPA repository interfaces.
+2025-06-04 16:50:29:015 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer(TomcatWebServer.java 111) -Tomcat initialized with port 18080 (http)
+2025-06-04 16:50:29:025 [main] INFO  org.apache.coyote.http11.Http11NioProtocol(DirectJDKLog.java 168) -Initializing ProtocolHandler ["http-nio-18080"]
+2025-06-04 16:50:29:026 [main] INFO  org.apache.catalina.core.StandardService(DirectJDKLog.java 168) -Starting service [Tomcat]
+2025-06-04 16:50:29:027 [main] INFO  org.apache.catalina.core.StandardEngine(DirectJDKLog.java 168) -Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-04 16:50:29:077 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/](DirectJDKLog.java 168) -Initializing Spring embedded WebApplicationContext
+2025-06-04 16:50:29:079 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext(ServletWebServerApplicationContext.java 301) -Root WebApplicationContext: initialization completed in 1307 ms
+2025-06-04 16:50:29:209 [main] INFO  org.hibernate.jpa.internal.util.LogHelper(LogHelper.java 31) -HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-04 16:50:29:249 [main] INFO  org.hibernate.Version(Version.java 44) -HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-04 16:50:29:272 [main] INFO  o.hibernate.cache.internal.RegionFactoryInitiator(RegionFactoryInitiator.java 50) -HHH000026: Second-level cache disabled
+2025-06-04 16:50:29:464 [main] INFO  o.s.o.j.persistenceunit.SpringPersistenceUnitInfo(SpringPersistenceUnitInfo.java 87) -No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-04 16:50:29:483 [main] INFO  com.zaxxer.hikari.HikariDataSource(HikariDataSource.java 109) -HikariPool-1 - Starting...
+2025-06-04 16:50:29:611 [main] INFO  com.zaxxer.hikari.pool.HikariPool(HikariPool.java 554) -HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./h2-data/openmanus_db user=SA
+2025-06-04 16:50:29:612 [main] INFO  com.zaxxer.hikari.HikariDataSource(HikariDataSource.java 122) -HikariPool-1 - Start completed.
+2025-06-04 16:50:29:641 [main] INFO  org.hibernate.orm.connections.pooling(JdbcEnvironmentInitiator.java 157) -HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-04 16:50:30:282 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator(JtaPlatformInitiator.java 59) -HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-04 16:50:30:340 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean(AbstractEntityManagerFactoryBean.java 447) -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-04 16:50:30:524 [main] INFO  o.s.data.jpa.repository.query.QueryEnhancerFactory(QueryEnhancerFactory.java 49) -Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-04 16:50:30:836 [main] INFO  c.a.cloud.ai.example.manus.config.ConfigService(ConfigService.java 59) -Found 36 configuration beans
+2025-06-04 16:50:30:976 [main] INFO  c.a.c.a.e.m.d.agent.service.DynamicAgentScanner(DynamicAgentScanner.java 66) -开始重置所有动态代理...
+2025-06-04 16:50:30:991 [main] INFO  c.a.c.a.e.m.d.agent.service.DynamicAgentScanner(DynamicAgentScanner.java 109) -已创建动态代理: BROWSER_AGENT
+2025-06-04 16:50:30:995 [main] INFO  c.a.c.a.e.m.d.agent.service.DynamicAgentScanner(DynamicAgentScanner.java 109) -已创建动态代理: DEFAULT_AGENT
+2025-06-04 16:50:30:998 [main] INFO  c.a.c.a.e.m.d.agent.service.DynamicAgentScanner(DynamicAgentScanner.java 109) -已创建动态代理: TEXT_FILE_AGENT
+2025-06-04 16:50:31:007 [main] INFO  c.a.c.a.e.m.d.agent.service.DynamicAgentScanner(DynamicAgentScanner.java 84) -动态代理重置完成
+2025-06-04 16:50:31:331 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping(WelcomePageHandlerMapping.java 59) -Adding welcome page: class path resource [static/index.html]
+2025-06-04 16:50:31:482 [main] INFO  o.s.b.autoconfigure.h2.H2ConsoleAutoConfiguration(H2ConsoleAutoConfiguration.java 133) -H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./h2-data/openmanus_db'
+2025-06-04 16:50:31:503 [main] INFO  org.apache.coyote.http11.Http11NioProtocol(DirectJDKLog.java 168) -Starting ProtocolHandler ["http-nio-18080"]
+2025-06-04 16:50:31:517 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer(TomcatWebServer.java 243) -Tomcat started on port 18080 (http) with context path '/'
+2025-06-04 16:50:31:522 [main] INFO  c.a.c.a.e.manus.OpenManusSpringBootApplication(StartupInfoLogger.java 59) -Started OpenManusSpringBootApplication in 4.559 seconds (process running for 5.123)
+2025-06-04 16:50:31:526 [main] INFO  c.a.c.a.e.m.c.startUp.ConfigAppStartupListener(ConfigAppStartupListener.java 60) -Configuration system initialized with 5 total configs
+2025-06-04 16:50:31:526 [main] INFO  c.a.c.a.e.m.c.startUp.ConfigAppStartupListener(ConfigAppStartupListener.java 61) -Group 'manus': 5 configs
+2025-06-04 16:50:31:526 [main] INFO  c.a.c.a.e.m.c.startUp.ConfigAppStartupListener(ConfigAppStartupListener.java 68) -1 configs are using custom values
+2025-06-04 16:50:31:527 [main] INFO  c.a.c.a.e.m.c.startUp.ConfigAppStartupListener(ConfigAppStartupListener.java 78) -Starting to initialize dynamic agents...
+2025-06-04 16:50:31:541 [main] INFO  c.a.c.a.e.m.d.agent.service.DynamicAgentScanner(DynamicAgentScanner.java 87) -跳过动态代理重置
+2025-06-04 16:50:31:541 [main] INFO  c.a.c.a.e.m.c.startUp.ConfigAppStartupListener(ConfigAppStartupListener.java 80) -Dynamic agents initialization completed
+2025-06-04 16:50:31:543 [main] INFO  c.a.c.a.e.manus.tool.textOperator.TextFileService(TextFileService.java 57) -TextFileService initialized
+2025-06-04 16:50:31:545 [main] INFO  c.a.c.a.e.manus.config.startUp.QueryCommandRunner(QueryCommandRunner.java 52) -控制台交互模式未启用，跳过命令行查询
+2025-06-04 16:50:31:546 [main] INFO  c.a.c.a.e.manus.tool.browser.ChromeDriverService(ChromeDriverService.java 140) -ChromeDriver path initialized: D:\Java\JavaProjects\spring-ai-alibaba-dev\spring-ai-alibaba-jmanus\target\classes\chromedriver\win64\chromedriver.exe
+2025-06-04 16:50:31:548 [main] INFO  c.a.c.a.e.manus.config.startUp.AppStartupListener(AppStartupListener.java 54) -应用已启动，正在尝试打开浏览器访问: http://localhost:18080/
+2025-06-04 16:50:31:633 [main] INFO  c.a.c.a.e.manus.config.startUp.AppStartupListener(AppStartupListener.java 80) -已通过Windows命令成功打开浏览器
+2025-06-04 16:50:31:778 [http-nio-18080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/](DirectJDKLog.java 168) -Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-04 16:50:31:778 [http-nio-18080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet(FrameworkServlet.java 532) -Initializing Servlet 'dispatcherServlet'
+2025-06-04 16:50:31:779 [http-nio-18080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet(FrameworkServlet.java 554) -Completed initialization in 1 ms
+2025-06-04 17:19:15:634 [Thread-8] INFO  c.a.c.a.e.manus.tool.browser.ChromeDriverService(ChromeDriverService.java 67) -JVM shutting down - cleaning up Chrome processes
+2025-06-04 17:19:15:634 [Thread-8] INFO  c.a.c.a.e.manus.tool.browser.ChromeDriverService(ChromeDriverService.java 114) -Successfully cleaned up all Chrome drivers
+2025-06-04 17:19:15:637 [SpringApplicationShutdownHook] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown(GracefulShutdown.java 54) -Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-04 17:19:15:642 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown(GracefulShutdown.java 76) -Graceful shutdown complete
+2025-06-04 17:19:15:645 [SpringApplicationShutdownHook] INFO  c.a.c.a.e.manus.tool.textOperator.TextFileService(TextFileService.java 122) -Cleaning up TextFileService resources
+2025-06-04 17:19:15:645 [SpringApplicationShutdownHook] INFO  c.a.c.a.e.manus.tool.browser.ChromeDriverService(ChromeDriverService.java 365) -Spring container shutting down - cleaning up Chrome resources
+2025-06-04 17:19:15:645 [SpringApplicationShutdownHook] INFO  c.a.c.a.e.manus.tool.browser.ChromeDriverService(ChromeDriverService.java 114) -Successfully cleaned up all Chrome drivers
+2025-06-04 17:19:15:645 [SpringApplicationShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean(AbstractEntityManagerFactoryBean.java 660) -Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-04 17:19:15:647 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource(HikariDataSource.java 349) -HikariPool-1 - Shutdown initiated...
+2025-06-04 17:19:15:648 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource(HikariDataSource.java 351) -HikariPool-1 - Shutdown completed.

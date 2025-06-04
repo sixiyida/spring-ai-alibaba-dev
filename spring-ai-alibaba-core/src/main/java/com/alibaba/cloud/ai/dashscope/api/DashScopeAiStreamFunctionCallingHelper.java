@@ -56,6 +56,9 @@ public class DashScopeAiStreamFunctionCallingHelper {
 	 * @return the merged ChatCompletionChunk
 	 */
 	public ChatCompletionChunk merge(ChatCompletionChunk previous, ChatCompletionChunk current) {
+
+		System.out.println("合并chunks");
+
 		if (previous == null) {
 			return current;
 		}
@@ -167,6 +170,7 @@ public class DashScopeAiStreamFunctionCallingHelper {
 	 */
 	public boolean isStreamingToolFunctionCall(ChatCompletionChunk chatCompletion) {
 
+		System.out.println("检测到streaming tool function call");
 		if (chatCompletion == null || chatCompletion.output() == null
 				|| CollectionUtils.isEmpty(chatCompletion.output().choices())) {
 			return false;

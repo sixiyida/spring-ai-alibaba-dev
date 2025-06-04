@@ -25,9 +25,11 @@ import org.springframework.ai.tool.function.FunctionToolCallback;
 import org.springframework.ai.tool.metadata.ToolMetadata;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 import java.util.*;
 import java.util.function.Function;
 
+@Component
 public class PlanningTool implements Function<String, ToolExecuteResult> {
 
 	private static final Logger log = LoggerFactory.getLogger(PlanningTool.class);
@@ -99,7 +101,7 @@ public class PlanningTool implements Function<String, ToolExecuteResult> {
 			.description(description)
 			.inputSchema(PARAMETERS)
 			.inputType(String.class)
-			.toolMetadata(ToolMetadata.builder().returnDirect(true).build())
+			.toolMetadata(ToolMetadata.builder().returnDirect(false).build()) // debug
 			.build();
 	}
 

@@ -104,6 +104,9 @@ public class PlanningFactory {
 	@Autowired
 	private McpStateHolderService mcpStateHolderService;
 
+	@Autowired
+	private PlanningTool planningTool;
+
 	public PlanningFactory(ChromeDriverService chromeDriverService, PlanExecutionRecorder recorder,
 			ManusProperties manusProperties, TextFileService textFileService, McpService mcpService) {
 		this.chromeDriverService = chromeDriverService;
@@ -125,11 +128,8 @@ public class PlanningFactory {
 	// }
 
 	public PlanningCoordinator createPlanningCoordinator(String planId) {
-
 		// Add all dynamic agents from the database
 		List<DynamicAgentEntity> agentEntities = dynamicAgentLoader.getAllAgents();
-
-		PlanningTool planningTool = new PlanningTool();
 
 		PlanCreator planCreator = new PlanCreator(agentEntities, llmService, planningTool, recorder);
 		PlanExecutor planExecutor = new PlanExecutor(agentEntities, recorder, agentService);

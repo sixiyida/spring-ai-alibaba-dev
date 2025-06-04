@@ -1372,12 +1372,14 @@ public class DashScopeApi {
 			.map(chunk -> {
 				if (chunkMerger.isStreamingToolFunctionCall(chunk)) {
 					isInsideTool.set(true);
+					System.out.println("检测到tool call chunk: " + chunk);
 				}
 				return chunk;
 			})
 			.windowUntil(chunk -> {
 				if (isInsideTool.get() && chunkMerger.isStreamingToolFunctionCallFinish(chunk)) {
 					isInsideTool.set(false);
+					System.out.println("检测到tool call chunk: " + chunk);
 					return true;
 				}
 				return !isInsideTool.get();
